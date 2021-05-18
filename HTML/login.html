@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style>
+		body 
+		{
+  			background-image: url("img4.jpg");
+		  	background-repeat: no-repeat;
+  			background-size: cover;
+
+		}
+		.container
+  		{
+  			background-color:black;
+  			height:50%;
+  			width:20%;
+  			padding-top: 30px;
+  			margin-top: 150px;
+  			margin-left: 500px;
+  			text-align: center;
+  			color: white;
+  			opacity: 0.7;
+  		}
+  		input[type=text] 
+  		{
+  			background-color: white;
+  			color: black;
+  			width:100%;
+  		}
+  		input[type=password]
+  		{
+  			width:100%;
+  		}
+  		input[type=button]
+  		{
+  			background-color:#1a1aff  ;
+  			color:white;
+  		}
+  		p
+  		{
+  			font-size: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+
+	
+	<div class="container">
+		<h1>Login Form</h1>
+
+		<div class="input-group mb-3">
+      	<div class="input-group-prepend">
+        <span class="input-group-text">@</span>
+    
+      <input type="text"placeholder="Username" id="usr" name="username">
+    	
+		</div>
+		<input type="password" name="password"placeholder="Password"><br>
+		<p style="margin-right: 140px;">Forget Password ?</p>
+		<input type="button" name="Login"value="LOGIN"style="width:100%;"><br>
+		<p>or login with</p>
+		<input type="button" name="submit"value="facebook"style="background-color: #0039e6;"></input>
+		<input type="button" name="submit"value="Instagram"style="background-color: #cc0066"></input><br>
+		<p>Don't have account ? <a href="#">signup Now</a></p><br>
+	</div>
+</body>
+</html>
