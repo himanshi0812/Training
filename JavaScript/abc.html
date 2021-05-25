@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+	body
+	{
+		background-image: url(Image.jpg);
+		background-size: cover;
+
+	}
+	.container
+	{
+		
+		width : 400px;
+		height: 450px;
+		padding: 50px;
+		margin-top: 150px;
+		color:white;
+		background-color: #00b3b3;
+		
+	
+
+	}
+	input[type=submit]
+	{
+	
+		text-align :center;
+		width: 95%;
+		background-color: #008080;
+		color: white;
+	}
+	input[type=text],[type=password],[type=email]
+	{
+		width: 100%;
+	}
+	select
+	{
+		width: 140px;
+		height: 30px;
+	}
+	
+</style>
+</head>
+<body>
+
+<form name="myForm" onsubmit="return validateForm()" method="post" required>
+	<div class="container">
+  		<p>Email</p> 
+  		<input type="email" name="em" id="numb" placeholder="Enter Email"><br>
+
+  		<p>Password</p> 
+	<input type="password" name="pass" placeholder="Enter Password"><br>
+ <span><p id="ps_error"></p></span>
+  		<!--<p>Confirm Password</p>
+    	<input type="password" placeholder="Re-Enter Password" name="pass2" id="password" required><br><br>
+-->
+    	<label>Age</label>
+    	<label style="margin-left: 80px;">Profession List</label>
+    		
+    	<input type="text" placeholder="Age" name="age" id="age" required style="width: 50%;"> 
+    	<select name="pro" id="Profession">
+    			<option value="select">Select</option>
+  				<option value="Teacher">Teacher</option>
+  				<option value="Pharmacist">pharmacist</option>
+				<option value="Doctor">Doctor</option>
+				<option value="Accountant">Accountant</option>
+				<option value="Engineer">Engineer</option>
+				<option value="Chef">Chef</option>
+				<option value="lawyer">Lawyer</option>
+		</select><br><br>
+  		
+  		<input type="submit" value="Submit">
+</form>
+	</div>
+
+<script>
+
+	
+	//var rp = document.forms["myForm"]["pass"].value;
+
+function validateForm(){ 
+
+	var x = document.forms["myForm"]["em"].value;
+	var p = document.forms["myForm"]["pass"].value;
+	//var p2 = document.forms["myForm"]["pass2"].value;
+
+	 var lowerCaseLetters = /[a-z]/g;
+  var upperCaseLetters = /[A-Z]/g;
+  var numbers = /[0-9]/g;
+	var lowerCaseLetter = []
+
+	if (x == "" || x == null) 
+	{
+		alert("email must be filled out");
+    	return false;
+	}
+
+ 	if (p == "") {
+    alert("password must be filled out");
+    return false;
+  }
+  else if(p.length < 8) {
+    alert("length must be 8 digit");
+    return false;
+    
+  }
+  if(!(p.match(lowerCaseLetters))) {  
+     document.getElementById('ps_error').innerHTML = 'atleast one lower char';
+    return false;
+    
+  }
+  if(!(p.match(upperCaseLetters))) { 
+    document.getElementById('ps_error').innerHTML = 'atleast one upper char';
+    return false;
+  }
+  if(!(p.match(numbers))) {  
+  document.getElementById('ps_error').innerHTML = 'Atleast one nuber';  
+    return false;
+}   
+//if(p==p2){
+	// alert("password must be Same");
+    // return false;
+    // }
+  
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+	body
+	{
+		background-image: url(Image.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 700px;
+
+	}
+	.container
+	{
+		background-image: url(container.jpg);
+		background-size: cover;
+		width : 300px;
+		height: 350px;
+		padding: 50px;
+		margin-top: 150px;
+		color:white;
+	}
+	input[type=submit]
+	{
+	
+		text-align :center;
+		width: 100%;
+		background-color: #008080;
+		color: white;
+	}
+	input[type=text],[type=password],[type=email]
+	{
+		width: 100%;
+	}
+	select
+	{
+		width: 140px;
+		height: 30px;
+	}
+	
+</style>
+</head>
+<body>
+
+<form name="myForm" onsubmit="return validateForm()" method="post" required>
+	<div class="container">
+  		<p>Email</p> 
+  		<input type="email" name="em" id="numb" placeholder="Enter Email"><br>
+
+  		<p>Password</p> 
+	<input type="password" name="pass" placeholder="Enter Password"><br>
+ <span><p id="ps_error"></p></span><br>    	
+ 
+ <input type="submit" value="LOGIN">
+</form>
+	</div>
+
+<script>
+
+	
+	//var rp = document.forms["myForm"]["pass"].value;
+
+function validateForm(){ 
+
+	var x = document.forms["myForm"]["em"].value;
+	var p = document.forms["myForm"]["pass"].value;
+	//var p2 = document.forms["myForm"]["pass2"].value;
+
+	 var lowerCaseLetters = /[a-z]/g;
+  var upperCaseLetters = /[A-Z]/g;
+  var numbers = /[0-9]/g;
+	var lowerCaseLetter = []
+
+	if (x == "" || x == null) 
+	{
+		alert("email must be filled out");
+    	return false;
+	}
+
+ 	if (p == "") {
+    //alert("password must be filled out");
+    document.getElementById('ps_error').innerHTML = 'Please Enter Password';
+    return false;
+  }
+  else if(p.length < 8) {
+    //alert("length must be 8 digit");
+    document.getElementById('ps_error').innerHTML = 'Password Required 8 Digit';
+    return false;
+    
+  }
+  if(!(p.match(lowerCaseLetters))) {  
+     document.getElementById('ps_error').innerHTML = 'Atleast One lowerCaseLetter required';
+    return false;
+    
+  }
+  if(!(p.match(upperCaseLetters))) { 
+    document.getElementById('ps_error').innerHTML = 'Atleast One UpperCaseLetter required';
+    return false;
+  }
+  if(!(p.match(numbers))) {  
+  document.getElementById('ps_error').innerHTML = 'Atleast One Number';  
+    return false;
+}   
+else{
+	alert("Sucessfully Login")
+	return true;
+}
+  
+}
+</script>
+</body>
+</html>
