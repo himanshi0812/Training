@@ -1,47 +1,87 @@
-
-
 import React from 'react';
-// class Clock extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {date: new Date()};
-//   }
 
-//   render() {
-//     return (
-//       <div>
-//         <h1>Hello, world!</h1>
-//         <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-//       </div>
-//     );
-//   }
-// }
+export class Student extends React.Component{
+  state = {
+     id: 101,
+     name:"RAHUL"
+     //name: "sdf"
+  };
+;
 
-class Football extends React.Component {
-  shoot() {
-    alert("Great Shot!");
+  // event Handler Arroe Function
 
-  }
-  // its give undefined output
-  // shoot() {
-  //   alert(this);
-  // }
+  handleClick = (id,name) => {
+    console.log(id);
+    console.log(name);
+  };
+  // for passing arguments
+  handleClickArg = () =>{
+   this.handleClick(this.state.id);
+   // this.handleClick(this.state.name);
+ }
 
-// it give object as an ouput
-    // shoot =() => {
-  //   alert(this); 
-  // }
-  
-  render() {
-    return (
-      <div className="Football">
-      <header className="Football">
-      <button onClick={this.shoot}>Take the shot!</button>
-      </header>
-      </div>
+  render(){
+    return(
+       <div>
+        <h1>HELLO,{this.state.name}</h1>
+        <button onClick ={this.handleClickArg}>CLICK</button>
+       </div>
     );
   }
 }
 
-// export default Clock
-export default Football
+// export default Student
+
+
+// class Student extends React.Component{
+//   handleClick = () => {
+//     console.log("button Clicked",this)
+//   }
+//   render(){
+//     return(
+//       <div>
+//         <h1>Hello Event</h1>
+//         <button onClick = {this.handleClick}>CLICK</button>
+//       </div>
+//     )
+//   }
+// }
+
+// Bind function use
+// import React from 'react';
+// class Student extends React.Component{
+//   constructor(props){
+//     super(props);
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+
+//   handleClick = () => {
+//     console.log("button Clicked",this)
+//   }
+//   render(){
+//     return(
+//       <div>
+//         <h1>Hello Event</h1>
+//         <button onClick = {this.handleClick}>CLICK</button>
+//       </div>
+//     )
+//   }
+// }
+
+// class Football extends React.Component {
+//   //shoot = (a, b) => 
+//   shoot (b,c){
+//     alert(c.type);
+//    // alert(b.type);
+//     /*
+//     'b' represents the React event that triggered the function,
+//     in this case the 'click' event
+//     */
+//   }
+//   render() {
+//     return (
+//       <button onClick={this.shoot.bind(this, "Goal")}>Click</button>
+//     );
+//   }
+// }
+export default Student
