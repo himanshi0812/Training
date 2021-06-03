@@ -1,0 +1,31 @@
+.Menu{
+    width: 100%;
+    height: 100px;
+    background-color: grey;
+    color: honeydew;
+
+}
+.Menu ul{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+.Menu ul li{
+    list-style: none;
+    
+}
+.Menu ul li a{
+    color:lightgoldenrodyellow;
+    
+}
+.About{
+    width: 100%;
+    height: 200px;
+    background-color:darkgray;
+}
+.Contact{
+    width: 100%;
+    height: 200px;
+    background-color:lightblue;
+}
