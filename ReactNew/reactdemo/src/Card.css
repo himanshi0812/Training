@@ -16,3 +16,10 @@ h2{
 .col-10{
     margin-left: 150px;
 }
+h1{
+    text-align: center;
+}
+/* 
+.App{
+    display: flex;
+} */

@@ -2,23 +2,12 @@
     background-color: burlywood;
     height: 100%;
 } */
-.Home{
-    background-color: cadetblue;
-    /* text-align: center; */
-    height: 300PX;
-   
-}
-h1{
-    padding-top: 90px;
-    display: flex;
-    justify-content: space-around;
- 
-}
-.button{
-    padding-top: 30px;
-    margin-left: 470px;
-}
-.btn {
+/* .container{
+    background-color:lightblue;
+    height: 300px;
+    text-align: center;
+    padding-top: 80px;
+    width: 100%;
+} */
 
-    width: 250px;
-}
+

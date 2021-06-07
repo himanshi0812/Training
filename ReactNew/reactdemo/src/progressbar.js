@@ -23,8 +23,8 @@ export default function UseEffectAPI (){
                         return(
                             <div>
 
-<div className="col-10 col-md-4 mt-5">
-                    <div class="card p-3">
+<div className="col-6 col-md-4 mt-5">
+                    <div class="card p-2">
                         <div class="d-flex align-items-center">
                         
                             <div class="ml-3 w-100">

@@ -8,11 +8,11 @@ function Details({match}){
     //  console.log(location);
     //  console.log(histroy);
     return(
-      <div className = "Details">
-        <h1>WELCOME TO Details page PAGE</h1>
+      <div className = "Details container">
+      <h3>Details</h3>
         
         <UseEffectAPI />
-      <Link to = {`${match.path}/Details`}>fghjhk</Link>
+      {/* <Link to = {`${match.path}/Details`}>fghjhk</Link> */}
      {/* <Switch>
       <Route exact path ={`${match.path}/Details`} component = {services } />
       </Switch> */}
