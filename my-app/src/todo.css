@@ -1,0 +1,17 @@
+.main{
+        background-color: darkslategray;
+        color:floralwhite;
+        text-align: center;
+        height: 600px;
+}
+
+.center{
+    background-color: gainsboro;
+    width: 300px;
+    height: 500px;
+    color: black;
+    margin-left: 500px;
+    border-radius: 8px;
+}
+
+
