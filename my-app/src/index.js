@@ -4,23 +4,24 @@ import './index.css';
 import App from './App';
 // import store  from './store';
 import {createStore} from "redux";
-import {counterReducer} from './reducer';
+import postsReducer from './reducer';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import { applyMiddleware } from 'redux';
 // import * as serviceWorker from './serviceWorker';
 
-const myLogger = (store) => {
-  return (next) => {
-    return (action) => {
-      console.log("middleware");
-      return next(action)
-    };
-  };
-};
+// const myLogger = (store) => {
+//   return (next) => {
+//     return (action) => {
+//       console.log("middleware");
+//       return next(action)
+//     };
+//   };
+// };
 
 
 
-const store = createStore(counterReducer ,applyMiddleware(myLogger));
+const store = createStore(postsReducer,applyMiddleware(thunk));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

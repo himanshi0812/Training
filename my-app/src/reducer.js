@@ -1,12 +1,10 @@
-export const counterReducer = (state =0,action)=>{
-    console.log("reducer run")
-    
+const initialState =[]
+const postsReducer = (state = initialState,action) => {
     switch(action.type){
-        case "INCREMENT":
-            return state + 1;
-        case "DECREMENT":
-            return state - 1;
+        case "FETCH_POSTS":
+            return action.payload;
         default:
             return state;
     }
 };
+export default postsReducer;
