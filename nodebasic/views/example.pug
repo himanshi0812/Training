@@ -1,0 +1,13 @@
+doctype html 
+html 
+    head 
+        title First pug page 
+    body 
+        h1 john
+        p hey john how are you
+
+        if(data)
+            h1 Hello #{data.name}
+            h2 yourcity #{data.city}
+        else
+            h1(style="color:red") javascript failed  
