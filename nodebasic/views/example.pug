@@ -2,7 +2,10 @@ doctype html
 html 
     head 
         title First pug page 
+        style 
+            include ./css/custom.css 
     body 
+        include ./component/header.pug
         h1 john
         p hey john how are you
 

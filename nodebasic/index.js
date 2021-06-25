@@ -1,22 +1,60 @@
 //  //  //  //  //  USING PUG  //   //  //  //  //
 
+// const express = require('express');
+// const app = express();
+
+// app.set('view engine','pug');
+// app.set('views','./views');
+
+// app.get('/',function(req,res){
+
+//     var person={                //if else condition
+//         name : "shina",
+//         city : "indore",
+//     };
+//     res.render('example',{
+//         data:person
+//     });
+// });
+
+
 const express = require('express');
+const student = require ('./student')
 const app = express();
+app.use(express.json())
 
-app.set('view engine','pug');
-app.set('views','./views');
 
-app.get('/',function(req,res){
+app.listen(3000,()=>{
+    console.log('port 3000');
+})
 
-    var person={                //if else condition
-        name : "shina",
-        city : "indore",
-    };
-    res.render('example',{
-        data:person
-    });
-});
-app.listen(80);
+app.get('/',(req,res)=>{
+    res.json({message:'API Run'});
+}) 
+
+
+app.get('/student',(req,res)=>{
+    res.json(student);
+})
+
+    
+app.post('/api/student',(req,res)=>{
+        if(!req.body.email){
+            res.status(400)
+            return res.json({error : "email is required"})
+        }
+    const user ={
+        id : student.length+1,
+        first_name : req.body.first_name,
+        last_name : req.body.last_name,
+        email : req.body.email
+    }
+    student.push(user)
+    console.log(req.body);
+    res.json(user)
+    res.json(user)
+})
+
 
 
 
