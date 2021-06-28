@@ -19,8 +19,9 @@
 
 
 const express = require('express');
-const student = require ('./student')
+const student = require ('./student');
 const app = express();
+const fs = require('fs');
 app.use(express.json())
 
 
@@ -49,11 +50,21 @@ app.post('/api/student',(req,res)=>{
         last_name : req.body.last_name,
         email : req.body.email
     }
+
     student.push(user)
     console.log(req.body);
     res.json(user)
     res.json(user)
 })
+
+fs.writeFile('./newstudent.json',JSON.stringify(student,null,2),err => {
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log('file successfully written!!!');
+    }
+});
 
 
 
