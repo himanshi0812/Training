@@ -1,27 +1,8 @@
-//  //  //  //  //  USING PUG  //   //  //  //  //
-
-// const express = require('express');
-// const app = express();
-
-// app.set('view engine','pug');
-// app.set('views','./views');
-
-// app.get('/',function(req,res){
-
-//     var person={                //if else condition
-//         name : "shina",
-//         city : "indore",
-//     };
-//     res.render('example',{
-//         data:person
-//     });
-// });
-
-
 const express = require('express');
 const student = require ('./student');
 const app = express();
 const fs = require('fs');
+const { json } = require('body-parser');
 app.use(express.json())
 
 
@@ -34,28 +15,31 @@ app.get('/',(req,res)=>{
 }) 
 
 
-app.get('/student',(req,res)=>{
+app.get('/text/to/json',(req,res)=>{
     res.json(student);
 })
 
     
-app.post('/api/student',(req,res)=>{
+app.post('/text/to/json',(req,res)=>{
         if(!req.body.email){
             res.status(400)
             return res.json({error : "email is required"})
         }
-    const user ={
-        id : student.length+1,
+    const user = {
+       id : student.length+1,
         first_name : req.body.first_name,
         last_name : req.body.last_name,
         email : req.body.email
     }
+    const myobj = JSON.stringify(user);
 
-    student.push(user)
+
+    student.push(myobj)
     console.log(req.body);
-    res.json(user)
-    res.json(user)
+    res.json(myobj)
 })
+
+
 
 fs.writeFile('./newstudent.json',JSON.stringify(student,null,2),err => {
     if(err){
