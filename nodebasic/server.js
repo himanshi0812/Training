@@ -1,11 +1,18 @@
-const express = require('express');
-const app = express();
-const bcrypt = require('bcrypt');
+const express = require('express')
+const app = express()
+const bcrypt = require('bcrypt')
+// const passport = require('passport')
 
-const users = [];
+// const initializePassport = require('./passport-config')
+// initializePassport(
+//   passport, 
+//   email => users.find(user => user.email === email) 
+//   )
+
+const users = []
 
 app.set('view-engine','ejs')
-app.use(express.urlencoded({extended : false}))
+app.use(express.urlencoded({ extended : false}))
 
 app.get('/',(req,res) => {
   res.render('home.ejs')
@@ -19,51 +26,27 @@ app.post('/login',(req,res) => {
 
 })
 
-
-
 app.get('/register',(req,res) => {
   res.render('register.ejs')
 })
 
-app.post('/register', async(req,res) => {
-  try{
-    const hashedPassword = await bcrypt.hash(req.body.passowrd,10)
-    users.push({
-      id:Date.now().toString(),
-      name : req.body.name,
-      email : req.body.email,
-      password : hashedPassword
-    })
-    res.redirect('/login')
-  }catch{
-    res.redirect('/register')
-  }
+app.post('/register', async (req,res) => {
+try{
+  const hashedPassword = await bcrypt.hash(req.body.password,10)
+  users.push({
+    id: Date.now().toString(),
+    name : req.body.name,
+    email : req.body.email,
+    password : hashedPassword
+  })
+  res.redirect('/login')
+}catch{
+  res.redirect('/register')
+}
   console.log(users)
 })
-
-app.listen(3000)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+app.listen(7000)
 
 
 // var http = require('http');
